@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="store">
+  <head>
+    <title>Flatlander's Gem Store</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" href="custom.css"/>
+  </head>
+
+  <body class="container" ng-controller="StoreController as store">
+
+    <hgroup id="app-tittle-wr" class="text-center">
+      <h1 id="app-tittle">Flatlander's Gem Store</h1>
+      <h1 id="app-subtitle">Code School - Shaping up with Angular.js</h1>
+    </hgroup>
+
+    <ul class="list-group">
+      <li class="list-group-item card" ng-repeat="product in store.products | orderBy:'-price'" ng-hide="store.product.soldOut">
+        <h3 product-title>
+        </h3>
+        <div class="gallery">
+          <img class="img center-block" ng-src="{{product.images}}" />
+        </div>
+
+
+        <product-panels></product-panels>
+
+        <button ng-show="product.canPurchase"> Add to Cart </button>
+      </li>
+    </ul>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="products.js"></script>
+  </body>
+</html>
